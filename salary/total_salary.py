@@ -1,3 +1,5 @@
+from pathlib import Path
+
 def total_salary(path: str) -> tuple | None:
     try:
         if type(path) is not str:
@@ -15,4 +17,10 @@ def total_salary(path: str) -> tuple | None:
         print(f'{type(err)}: {err}')
         return None
 
-print(total_salary('employees.txt'))
+def main():
+    current_dir = Path(__file__).parent
+    file_path = str(current_dir / 'employees.txt')
+    print(total_salary(file_path))
+
+if __name__ == '__main__':
+    main()
